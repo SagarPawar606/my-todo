@@ -1,0 +1,11 @@
+{% extends 'Task/base.html' %}
+
+{% block content %}
+<div class="m-4">
+    {{task.title}}
+    <small>{{task.added}}</small>
+    <p>{{task.description}}</p>
+    <input type="checkbox"  {% if task.completed %}checked{% endif %}>
+</div>
+    
+{% endblock content %}
