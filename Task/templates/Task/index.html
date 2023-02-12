@@ -4,7 +4,12 @@
     {% for task in tasks %}
         <div class="m-4">
             <h4><a href="{{task.get_absolute_url}}">{{task.title|title}}</a></h4>
-            <small>Added : {{task.added|timesince}} ago</small>
+            <small>Added : {{task.added|timesince}} ago</small><br>
+            <small>
+                {% for tag in task.tag.all %} 
+                    {{tag}} 
+                {% endfor %}
+            </small>
         </div>
         
     {% endfor %}

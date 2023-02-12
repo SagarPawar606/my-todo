@@ -6,6 +6,14 @@
     <small>{{task.added}}</small>
     <p>{{task.description}}</p>
     <input type="checkbox"  {% if task.completed %}checked{% endif %}>
+    <form method="POST", action="">
+        {% csrf_token %}
+        {{task_form.as_p}}
+        <button type="submit">Update</button>
+    </form>
+    <form method="GET", action="{% url 'task-delete' task.slug %}">
+        <button type="submit">Delete Task</button>
+    </form>
 </div>
     
 {% endblock content %}
